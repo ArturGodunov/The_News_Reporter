@@ -1,0 +1,49 @@
+mixin navigation(obj)
+	ul(class=obj.className + "_list")
+		each val in obj.arr
+			li(class=obj.className + "_item")
+				if obj.link
+					if obj.img
+						a(class=select ? "active" : "" class=obj.className + "_link" href="#")
+							- select = false
+							img(class=val class=obj.className + "_preview" src="images/breaking_news/" + val + ".jpg")
+					else
+						a(class=obj.className + "_link" href="#")= val
+				else
+					span(class=val class="social_link")
+
+mixin listContent(obj)
+	ul(class=obj.className + "_list")
+		each val, index in obj.arrayPreview || obj.arrayTextTitle
+			li(class=obj.className + "_item")
+				if !obj.figure
+					div(class=obj.className + "_content")
+						if obj.arrayPreview
+							a(class=obj.className + "_preview_wrap" href="#")
+								img(class=obj.className + "_preview" src="images/" + obj.arrayPreview[index] + ".jpg")
+						if obj.date
+							.date_wrap
+								.date= obj.date
+						if obj.arrayTextTitle
+							.text_block
+								if !obj.arrayText
+									a.text_title(href="#")= obj.arrayTextTitle[index]
+								else
+									h3.text_title= obj.arrayTextTitle[index]
+									.text= obj.arrayText[index]
+							if obj.author
+								.author_comments
+									.author by <a href="#">#{obj.author}</a>
+									dl.comments
+										dt.comments_term comments
+										dd.comments_number 29
+						if obj.classReadMore
+							a.read_more(href="#") read more
+						if obj.classTime
+							.time= obj.classTime
+				else
+					figure(class=obj.className + "_content")
+						a(class=obj.className + "_preview_wrap" href="#")
+							img(class=obj.className + "_preview" src="images/" + obj.arrayPreview[index] + ".jpg")
+						figcaption.text_block
+							a.text_title(href="#")= obj.arrayTextTitle[index]

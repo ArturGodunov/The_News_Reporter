@@ -1,0 +1,45 @@
+include includes/global_vars
+include includes/mixins
+
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title The News Reporter
+		link(rel="stylesheet" href="styles/layout.css")
+	body
+		.wrapper
+			header.header
+				.header_top
+					a.logo(href="#" title="The News Reporter")
+					.social_search_container
+						.social
+							+navigation(social)
+						.search
+							form.search_form(action="#")
+								dl.search_def
+									dt.search_term
+										label.search_label(for="search") Search
+									dd.search_input
+										input(id="search" type="text" name="search")
+								.btn_search
+					nav.nav_top
+						+navigation(navTop)
+				nav.nav_main
+					+navigation(navMain)
+			.main
+				block content
+			footer.footer
+				.footer_block
+					+navigation(footer)
+				.copyright_wrap
+					.copyright
+						span.
+							Copyright © 2011 The News Reporter Inc.
+							All rights reserved. Theme designed by GraphicsFuel.com
+						span.
+							Reproduction in whole or in part in any form or medium without express written permission
+							of The News Reporter Inc. is prohibited. The trade marks and images used in the design are
+							the copyright of their respective owners. They are used only for display purpose.
+		script(src="js/jquery-1.11.1.min.js")
+		script(src="js/scripts.js")

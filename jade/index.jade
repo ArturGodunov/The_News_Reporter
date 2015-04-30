@@ -1,0 +1,78 @@
+extends layout
+include includes/global_vars
+include includes/mixins
+
+block content
+	.content_main
+		.main_header_wrap
+			.breaking_news
+				.breaking_news_img_wrap
+					img.breaking_news_img(src="images/breaking_news/breaking_news_img.jpg" alt="Breaking news")
+					.move_out_wrap
+						.breaking_news_slider.
+							Lorem ipsum dolor sit amet, consectetur
+							Nulla quis lorem neque, mattis venenatis lectus.
+				.breaking_news_preview
+					+navigation(breakingNewsPreview)
+			.label_wrap
+				.breaking_news_lable breaking news
+		.main_wrap
+			.main_container
+				- for(var i=0; i<arrMainCont.length; i++)
+					.main_container_title_wrap
+						h2(class=arrMainContTitle[i].className+"_title")= arrMainCont[i]
+						a.more_plus(href="#" alt="More") more +
+					+listContent(arrMainContTitle[i])
+			.main_aside
+				- for(var i=0; i<arrMainAside.length; i++)
+					.main_aside_block
+						.main_aside_title_wrap
+							h2(class=arrMainAsideTitle[i].className+"_title")= arrMainAside[i]
+						a.more_plus(href="#" alt="More") more +
+						+listContent(arrMainAsideTitle[i])
+	.content_aside
+		.aside_block
+			+listContent(play)
+			a.more_plus(href="#" alt="More") more +
+		.aside_block
+			.aside_banner_top
+				a.banner_top_link(href="#" alt="Banner")
+					img.banner_top_img(src="images/banner/banner_aside_1.jpg")
+		.aside_block
+			.newsletter_wrap
+				form.newsletter(action="#")
+					h2.newsletter_title_wrap
+						span.newsletter_title Sign Up for Newsletter
+					.newsletter_text_top_wrap
+						.newsletter_text_top Sign up to receive our free newsletters!
+					dl.newsletter_name
+						dt.name_label_term
+							label.name_label(for="name") Name
+						dd.name_input
+							input(id="name" type="text" name="name" placeholder="Name")
+					dl.newsletter_email
+						dt.email_label_term
+							label.email_label(for="email") Email
+						dd.email_input
+							input(id="email" type="text" name="email" placeholder="Email Address")
+					dl.newsletter_submit
+						dt.submit_label_term
+							label.submit_label(for="submit") Submit
+						dd.submit_input
+							input(id="submit" type="submit" name="newsletter_go" value="submit")
+					.newsletter_text_bottom_wrap
+						.newsletter_text_bottom We do not spam. We value your privacy!
+		.aside_block.popular
+			.aside_title_wrap
+				h2.popular_title popular <span>most read</span>
+			+listContent(popular)
+			a.more_plus(href="#" alt="More") more +
+		.aside_block.banner_bottom
+			.aside_banner_bottom
+				a.banner_bottom_link(href="#" alt="Banner")
+					img.banner_bottom_img(src="images/banner/banner_aside_2.jpg")
+	.content_bottom
+		.content_bottom_banner_wrap
+			.content_bottom_banner
+				a.content_bottom_banner_link(href="#" alt="Banner")
+					img.content_bottom_banner_img(src="images/banner/banner_bottom.jpg")

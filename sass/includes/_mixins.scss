@@ -1,0 +1,7 @@
+@mixin social($icon){
+  @each $val in $icon {
+    .#{$val} {
+      @include icons-sprite($val);
+    }
+  }
+}
