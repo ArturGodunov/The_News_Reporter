@@ -275,6 +275,10 @@ body {
   float: left;
 }
 
+.hide {
+  display: none;
+}
+
 .nav_main_link, .nav_main_link:visited {
   text-decoration: none;
   text-transform: uppercase;
@@ -324,8 +328,8 @@ body {
   position: absolute;
   bottom: 0;
   left: 0;
-  display: none;
   width: 100%;
+  display: none;
 }
 
 .breaking_news_slider {
