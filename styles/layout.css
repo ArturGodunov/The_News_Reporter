@@ -274,9 +274,8 @@ body {
 .nav_main_item {
   float: left;
 }
-
-.hide {
-  display: none;
+.nav_main_item.show {
+  display: block;
 }
 
 .nav_main_link, .nav_main_link:visited {

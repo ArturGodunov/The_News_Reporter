@@ -172,9 +172,9 @@ body{
 }
 .nav_main_item{
     float: left;
-}
-.hide{
-	display: none;
+	&.show{
+		display: block;
+	}
 }
 .nav_main_link, .nav_main_link:visited{
     text-decoration: none;
